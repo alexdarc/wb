@@ -1,0 +1,60 @@
+<style type="text/css">
+.retailrocket-item-oldprice {display:none}
+</style>
+<div
+	class="retailrocket retailrocket-widget retailrocket-theme-default"
+	data-header-text="Хиты продаж"
+	data-algorithm="popular"
+	data-algorithm-argument="0"
+	data-number-of-items="4"
+	data-image-width="100"
+	data-image-height="100"
+	data-textoverflowhidden="true"
+	data-template-container-id="widget-template-popular-main"
+	data-on-pre-render="preRenderFn(this, data, renderFn)"
+	data-on-post-render="postRenderFn(this)"
+	data-retailrocket-morebutton="true"
+	data-retailrocket-buybutton="false"
+    >
+</div>
+<script id="widget-template-popular-main" type="text/html">
+<header class="retailrocket-widgettitle">
+    <%=(headerText || "Вместе с этим товаром покупают")%>
+</header>
+<ul class="retailrocket-items">
+    <% for (var i = 0 ; i < numberOfItems; ++i) with(items[i]) { %>
+        <li class="retailrocket-item" style="width:<%=itemImageWidth%>px;">
+            <a class="retailrocket-item-info" href="<%=Url%>" onmousedown='retailrocket.widget.click(<%=ItemId%>,"<%=suggesterId%>","<%=algorithm%>") '>
+                <div class="retailrocket-item-image"> <img src="//cdn.retailrocket.ru/api/1.0/partner/<%=partnerId%>/item/<%=ItemId%>/picture/?format=png&width=<%=itemImageWidth%>&height=<%=itemImageHeight%>&scale=both" style="width:<%=itemImageWidth%>px;height:<%=itemImageHeight%>px"></div>
+                <div class="retailrocket-item-brand">
+                    <%=Vendor %>
+                </div>
+                <div class="retailrocket-item-title">
+                    <%=Name %>
+                </div>
+                <div class="retailrocket-item-description">
+                    <%=Description %>
+                </div>
+            </a>
+            <div class="retailrocket-item-price"> <span class="retailrocket-item-price-value"><%= Price.toString().replace(/(\d{1,3})(?=((\d{3})*)$)/g, " $1") %></span> <span class="retailrocket-item-price-currency"></span> </div>
+			<% if ( OldPrice != Price && OldPrice > 0 ) {  %>
+				<div class="retailrocket-item-oldprice"> <span class="retailrocket-item-oldprice-value"><%= OldPrice.toString().replace(/(\d{1,3})(?=((\d{3})*)$)/g, " $1") %></span> <span class="retailrocket-item-oldprice-currency"></span> </div>
+				<% var Discount = Math.floor( 100 - Price / OldPrice * 100 ); %>
+			<% } %>
+            <nav class="retailrocket-actions">
+                <a class="retailrocket-actions-more" href="<%=Url%>"></a>
+                <a class="retailrocket-actions-buy" href="<%=Url%>" onclick='return retailrocket._widgetAddToBasket("<%=ItemId%>", "<%=onAddToBasket%>")'></a>
+            </nav>
+        </li>
+    <% } %>
+</ul>
+</script>
+<script type="text/javascript">
+function preRenderFn(OBJ, data, renderFn) {
+	renderFn(data);
+}
+function postRenderFn(OBJ) {}
+retailrocket.widget.render();
+retailrocket.exitIntendWidget.initialize();
+retailrocket.mailRequestForm.initialize();
+</script>

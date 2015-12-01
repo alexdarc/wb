@@ -1,0 +1,56 @@
+<div class="retailrocket-popup retailrocket-theme-conceptclub retailrocket-exit-intend deactivate-if-visitor-agreed-to-receive-marketing-mail" style="display:none;">
+        <article class="retailrocket-popup-window">
+            <a class="retailrocket-popup-close" onclick="retailrocket.exitIntendWidget.close(true)"></a>
+
+            <div class="retailrocket retailrocket-widget retailrocket-theme-conceptclub"
+                 id="retailrocket-mailrequest-widget"
+                 data-retailrocket-multiline="autoheight"
+                 data-template-param-item-image-width="132"
+                 data-template-param-item-image-height="200"
+                 data-algorithm="mailrequest"
+                 data-algorithm-argument="0"
+                 data-number-of-items="6"
+                 data-textoverflowhidden="true"
+                 data-retailrocket-buybutton="false"
+                 data-template-param-header-text="Интересовались этими вещами?"
+				 data-on-pre-render="preRenderFn(this, data, renderFn)"
+                 data-on-post-render="Number(this.getAttribute(&quot;data-number-of-rendered-items&quot;)) > 2 ? this.parentElement.parentElement.style.display = &quot;&quot; : this.parentElement.parentElement.style.display = &quot;none&quot;"           
+                 data-template-param-sub-header-text="Мы отправим их на ваш e-mail">
+            </div>
+            <div class="retailrocket retailrocket-mailrequest-form retailrocket-subscribe-widget retailrocket-theme-transparent"
+                 data-send-btn-id="retailrocket-mailrequest-from-send-btn"
+                 data-email-input-id="retailrcoket-mailrequest-form-email"
+                 data-product-to-send-widget-id="retailrocket-mailrequest-widget"
+                 data-subscribe-on-trigger-email-checkbox-id="retailrocket-subscribe-on-trigger-email">
+                <a href="#" onclick="retailrocket.exitIntendWidget.close()" class="retailrocket-close">&times;</a>
+                <form class="retailrocket-subscribe-form" onsubmit="return false;">
+                    <div class="retailrocket-subscribe-info">Отправить товары на почту:</div>
+                    <div class="retailrocket-subscribe-input-text">
+                        <input id="retailrcoket-mailrequest-form-email" type="text" placeholder="Эл.почта">
+                    </div>
+                    <div class="retailrocket-subscribe-input-checkbox">
+                        <label><input id="retailrocket-subscribe-on-trigger-email" type="checkbox" checked> Я хочу получать новости о новинках, скидках и специальных предложениях</label>
+                    </div>
+                    <div class="retailrocket-subscribe-input-submit">
+                        <input id="retailrocket-mailrequest-from-send-btn" type="submit" value="Подписаться">
+                    </div>
+                </form>
+            </div>
+
+        </article>
+    </div>
+    <style>
+        .retailrocket-item-description,
+		.retailrocket-item-brand {
+            display: none;
+        }
+    </style>
+<script>
+function preRenderFn(OBJ, data, renderFn) {
+	renderFn(data);
+}
+retailrocket.exitIntendWidget.initialize();
+retailrocket.widget.render();
+retailrocket.mailRequestForm.initialize();
+retailrocket.deactivateIfAgreedToReceiveMarketingMail.initialize();
+</script>

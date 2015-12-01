@@ -1,0 +1,54 @@
+<style type="text/css">
+</style>
+<div 
+   class='retailrocket retailrocket-notify-widget deactivate-if-visitor-agreed-to-receive-marketing-mail'
+   style="display: none;" 
+   data-on-show=''>
+ 
+    <div class='retailrocket retailrocket-widget retailrocket-theme-tiny'
+         id="storetrigger-mailrequest-widget"
+         data-algorithm='mailrequest'
+         data-number-of-items='6'
+         data-image-width='180'
+         data-image-height='180'
+         data-textoverflowhidden='true'
+         data-retailrocket-morebutton='false'
+         data-retailrocket-buybutton='false'
+         data-header-text='Заголовок '
+         data-viewed-mail-template-ready='true'
+         data-viewedna-mail-template-ready='true'
+         data-basket-mail-template-ready='true'
+         data-posttransaction-mail-template-ready='false'
+         data-header-text-viewed='Заголовок для брошеног просмотра'
+         data-header-text-viewedna='Заголовок для брошенного просмотра товаров не в наличии'
+         data-header-text-basket='Заголовок для брошенной корзины'
+         data-on-update='Number(this.getAttribute("data-number-of-rendered-items")) > 2 ? this.parentElement.style.display = "block": this.parentElement.style.display = "none"'>
+    </div>
+ 
+    <div class="retailrocket retailrocket-subscribe-widget retailrocket-mailrequest-form retailrocket-theme-default"
+         data-send-btn-id="storetrigger-mailrequest-from-send-btn"
+         data-email-input-id="storetrigger-mailrequest-form-email"
+         data-subscribe-on-trigger-email-checkbox-id="subscribe-on-trigger-email"
+         data-product-to-send-widget-id="storetrigger-mailrequest-widget">
+        <form class='retailrocket-subscribe-form' onsubmit="return false;">
+            <a class='retailrocket-close' onclick='retailrocket.exitIntendWidget.close(true)'>×</a>
+            <div class='retailrocket-subscribe-info'>Оставте свой email</div>
+            <div class='retailrocket-subscribe-input-text'>
+                <input id="storetrigger-mailrequest-form-email" type='text' placeholder='Email'>
+            </div>
+            <div class="retailrocket-subscribe-input-checkbox">
+                <label><input id="subscribe-on-trigger-email" type="checkbox"> Согласен принимать автоматические письма в будущем </label>
+            </div>
+            <div class='retailrocket-subscribe-input-submit'>
+                <input id="storetrigger-mailrequest-from-send-btn"
+                       type='button'
+                       value='Call to action'>
+            </div>
+        </form>
+    </div> 
+</div>
+<script type="text/javascript">
+retailrocket.widget.render();
+retailrocket.exitIntendWidget.initialize();
+retailrocket.mailRequestForm.initialize();
+</script>
