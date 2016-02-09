@@ -18,9 +18,9 @@
 <header class="retailrocket-widgettitle">
     <%=(headerText || "Вместе с этим товаром покупают")%>
 </header>
-<ul class="retailrocket-items">
+<div class="retailrocket-items">
     <% for (var i = 0 ; i < numberOfItems; ++i) with(items[i]) { %>
-        <li class="retailrocket-item" style="width:<%=itemImageWidth%>px;">
+        <div class="retailrocket-item" style="width:<%=itemImageWidth%>px;">
             <a class="retailrocket-item-info" href="<%=Url%>" onmousedown='retailrocket.widget.click(<%=ItemId%>,"<%=suggesterId%>","<%=algorithm%>") '>
                 <div class="retailrocket-item-image"> <img src="//cdn.retailrocket.ru/api/1.0/partner/<%=partnerId%>/item/<%=ItemId%>/picture/?format=png&width=<%=itemImageWidth%>&height=<%=itemImageHeight%>&scale=both" style="width:<%=itemImageWidth%>px;height:<%=itemImageHeight%>px"></div>
                 <div class="retailrocket-item-brand">
@@ -33,18 +33,18 @@
                     <%=Description %>
                 </div>
             </a>
-            <div class="retailrocket-item-price"> <span class="retailrocket-item-price-value"><%= Price.toString().replace(/(\d{1,3})(?=((\d{3})*)$)/g, " $1") %></span> <span class="retailrocket-item-price-currency"></span> </div>
-			<% if ( OldPrice != Price && OldPrice > 0 ) {  %>
-				<div class="retailrocket-item-old-price"> <span class="retailrocket-item-old-price-value"><%= OldPrice.toString().replace(/(\d{1,3})(?=((\d{3})*)$)/g, " $1") %></span> <span class="retailrocket-item-price-currency"></span> </div>
+            <div class="retailrocket-item-price"> <span class="retailrocket-item-price-value"><%= retailrocket.widget.formatNumber(Price, ",", " ", precision = 0) %></span> <span class="retailrocket-item-price-currency"></span> </div>
+			<% if ( OldPrice > Price ) {  %>
+				<div class="retailrocket-item-old-price"> <span class="retailrocket-item-old-price-value"><%= retailrocket.widget.formatNumber(OldPrice, ",", " ", precision = 0) %></span> <span class="retailrocket-item-price-currency"></span> </div>
 				<% var Discount = Math.floor( 100 - Price / OldPrice * 100 ); %>
 			<% } %>
             <nav class="retailrocket-actions">
                 <a class="retailrocket-actions-more" href="<%=Url%>"></a>
                 <a class="retailrocket-actions-buy" href="<%=Url%>" onclick='return retailrocket._widgetAddToBasket("<%=ItemId%>", "<%=onAddToBasket%>")'></a>
             </nav>
-        </li>
+        </div>
     <% } %>
-</ul>
+</div>
 </script>
 <script type="text/javascript">
 function preRenderFn(OBJ, data, renderFn) {
