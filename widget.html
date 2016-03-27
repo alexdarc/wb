@@ -22,7 +22,7 @@
     <% for (var i = 0 ; i < numberOfItems; ++i) with(items[i]) { %>
         <div class="retailrocket-item" style="width:<%=itemImageWidth%>px;">
             <a class="retailrocket-item-info" href="<%=Url%>" onmousedown='retailrocket.widget.click(<%=ItemId%>,"<%=suggesterId%>","<%=algorithm%>") '>
-                <div class="retailrocket-item-image"> <img src="//cdn.retailrocket.ru/api/1.0/partner/<%=partnerId%>/item/<%=ItemId%>/picture/?format=png&width=<%=itemImageWidth%>&height=<%=itemImageHeight%>&scale=both" style="width:<%=itemImageWidth%>px;height:<%=itemImageHeight%>px"></div>
+                <div class="retailrocket-item-image"> <img src="//cdn.retailrocket.ru/api/1.0/partner/<%=partnerId%>/item/<%=ItemId%>/picture/?format=png&width=<%=itemImageWidth%>&height=<%=itemImageHeight%>&scale=both" style="width:<%=itemImageWidth%>px;height:<%=itemImageHeight%>px" onerror="retailrocket.widget.hideProduct(this)"></div>
                 <div class="retailrocket-item-brand">
                     <%=Vendor %>
                 </div>
@@ -52,6 +52,4 @@ function preRenderFn(OBJ, data, renderFn) {
 }
 function postRenderFn(OBJ) {}
 retailrocket.widget.render();
-retailrocket.exitIntendWidget.initialize();
-retailrocket.mailRequestForm.initialize();
 </script>
