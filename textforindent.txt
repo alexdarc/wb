@@ -1,0 +1,4 @@
+
+         data-header-text-viewed='Dit zijn de producten die u heeft bekeken. Wilt u dat wij deze producten voor u naar uw e-mail verzenden zodat u ze de volgende keer niet hoeft te zoeken?'
+         data-header-text-viewedna='Helaas, dit product is niet op voorraad. Wilt u een e-mail ontvangen wanneer dit product weer op voorraad is?'
+         data-header-text-basket='Dit zijn de producten uit uw winkelwagen. Wilt u dat we deze naar uw e-mail verzenden?'
