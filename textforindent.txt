@@ -1,4 +1,32 @@
+=== Netherlands ===
+data-header-text-viewed='Dit zijn de producten die u heeft bekeken. Wilt u dat wij deze producten voor u naar uw e-mail verzenden zodat u ze de volgende keer niet hoeft te zoeken?'
+data-header-text-viewedna='Helaas, dit product is niet op voorraad. Wilt u een e-mail ontvangen wanneer dit product weer op voorraad is?'
+data-header-text-basket='Dit zijn de producten uit uw winkelwagen. Wilt u dat we deze naar uw e-mail verzenden?'
 
-         data-header-text-viewed='Dit zijn de producten die u heeft bekeken. Wilt u dat wij deze producten voor u naar uw e-mail verzenden zodat u ze de volgende keer niet hoeft te zoeken?'
-         data-header-text-viewedna='Helaas, dit product is niet op voorraad. Wilt u een e-mail ontvangen wanneer dit product weer op voorraad is?'
-         data-header-text-basket='Dit zijn de producten uit uw winkelwagen. Wilt u dat we deze naar uw e-mail verzenden?'
+<div class='retailrocket-subscribe-info'>Vul hieronder uw email in en we sturen de producten op.</div>
+<div class='retailrocket-subscribe-input-text'>
+    <input id="storetrigger-mailrequest-form-email" type='text' placeholder='Email'>
+</div>
+<div class="retailrocket-subscribe-input-checkbox">
+    <label><input id="subscribe-on-trigger-email" type="checkbox">Schrijf mij in voor promotionele acties, kortingen en speciale aanbiedingen</label>
+</div>
+<div class='retailrocket-subscribe-input-submit'>
+    <input id="storetrigger-mailrequest-from-send-btn" type="button" value="Versturen">
+</div>
+
+=== Spain ===
+data-header-text-viewed='¿Quiere que le enviemos estos productos a su email y así ahorrar tiempo en su próxima visita?'
+data-header-text-viewedna='¿Quiere que le avisemos cuándo este producto este de nuevo en stock?'
+data-header-text-basket='Hemos guardado estos productos para usted. ¿Quiere que le enviemos estos productos a su email y así ahorrar tiempo en su próxima visita?'
+data-header-text-searched='¿Quiere que le enviemos esta selección de productos a su email y así ahorrar tiempo en su próxima visita?'
+
+<div class='retailrocket-subscribe-info'>Su dirección de correo electrónico</div>
+<div class='retailrocket-subscribe-input-text'>
+    <input id="storetrigger-mailrequest-form-email" type='text' placeholder='E-mail'>
+</div>
+<div class="retailrocket-subscribe-input-submit">
+    <input id="storetrigger-mailrequest-from-send-btn" type="button" value="Enviar">
+</div>
+<div class="retailrocket-subscribe-input-checkbox">
+    <label><input id="subscribe-on-trigger-email" type="checkbox" checked>Suscríbete para estar al tanto de nuestras promociones, descuentos y ofertas</label>
+</div>
