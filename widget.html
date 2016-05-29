@@ -14,15 +14,16 @@
 	data-retailrocket-buybutton="false"
     >
 </div>
+<style type="text/css">
+</style>
 <script id="widget-template" type="text/html">
-  <noscript></noscript>
   <header class="retailrocket-widgettitle">
-    <%=(headerText)%>
+    <span><%=(headerText)%></span>
   </header>
   <div class="retailrocket-items">
     <% for (var i = 0 ; i < numberOfItems; ++i) with(items[i]) { %>
     <div class="retailrocket-item" style="width:<%=itemImageWidth%>px;">
-      <a class="retailrocket-item-info" href="<%=Url%>" onmousedown='retailrocket.widget.click(<%=ItemId%>,"<%=suggesterId%>","<%=algorithm%>") '>
+      <a class="retailrocket-item-info" href="<%=Url%>" onmousedown='rrApi.recomMouseDown(<%=ItemId%>, { suggester: "<%=suggesterId%>", methodName: "<%=algorithm%>" })'>
         <div class="retailrocket-item-image"> <img src="//cdn.retailrocket.ru/api/1.0/partner/<%=partnerId%>/item/<%=ItemId%>/picture/?format=png&width=<%=itemImageWidth%>&height=<%=itemImageHeight%>&scale=both" style="width:<%=itemImageWidth%>px;height:<%=itemImageHeight%>px" onerror="retailrocket.widget.hideProduct(this)"></div>
         <div class="retailrocket-item-brand">
           <%=Vendor %>
@@ -34,14 +35,16 @@
           <%=Description %>
         </div>
       </a>
-      <div class="retailrocket-item-price"> <span class="retailrocket-item-price-value"><%= retailrocket.widget.formatNumber(Price, ",", " ", 0) %></span> <span class="retailrocket-item-price-currency"></span> </div>
-      <% if ( OldPrice > Price ) {  %>
-      <div class="retailrocket-item-old-price"> <span class="retailrocket-item-old-price-value"><%= retailrocket.widget.formatNumber(OldPrice, ",", " ", 0) %></span> <span class="retailrocket-item-price-currency"></span> </div>
-      <% var Discount = Math.round( 100 - Price / OldPrice * 100 ); %>
-      <% } %>
+      <div class="retailrocket-price-wrapper">
+        <div class="retailrocket-item-price"> <span class="retailrocket-item-price-value"><%= retailrocket.widget.formatNumber(Price, ",", " ", 0) %></span> <span class="retailrocket-item-price-currency"></span> </div>
+        <% if ( OldPrice > Price ) {  %>
+        <div class="retailrocket-item-old-price"> <span class="retailrocket-item-old-price-value"><%= retailrocket.widget.formatNumber(OldPrice, ",", " ", 0) %></span> <span class="retailrocket-item-price-currency"></span> </div>
+        <% var Discount = Math.round( 100 - Price / OldPrice * 100 ); %>
+        <% } %>
+      </div>
       <nav class="retailrocket-actions">
-        <a class="retailrocket-actions-more" href="<%=Url%>"></a>
-        <a class="retailrocket-actions-buy" href="<%=Url%>" onclick='try{rrApi.addToBasket(<%=ItemId%>, {methodName: "<%=algorithm%>"})}catch(e){};return retailrocket._widgetAddToBasket("<%=ItemId%>", "<%=onAddToBasket%>")'></a>
+        <a class="retailrocket-actions-more" href="<%=Url%>" onmousedown='rrApi.recomMouseDown(<%=ItemId%>, { suggester: "<%=suggesterId%>", methodName: "<%=algorithm%>" })'></a>
+        <a class="retailrocket-actions-buy" href="<%=Url%>" onclick='rrApi.recomAddToCart(<%=ItemId%>, { suggester: "<%=suggesterId%>", methodName: "<%=algorithm%>" })'></a>
       </nav>
     </div>
     <% } %>
