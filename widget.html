@@ -8,8 +8,8 @@
 	data-image-height="100"
 	data-textoverflowhidden="true"
 	data-template-container-id="widget-template"
-	data-on-pre-render="preRenderFn(this, data, renderFn)"
-	data-on-post-render="postRenderFn(this)"
+	data-on-pre-render="rrMethods.preRenderFn(this, data, renderFn)"
+	data-on-post-render="rrMethods.postRenderFn(this)"
 	data-retailrocket-morebutton="true"
 	data-retailrocket-buybutton="false"
     >
@@ -51,9 +51,19 @@
   </div>
 </script>
 <script type="text/javascript">
-function preRenderFn(widget, data, renderFn) {
-	renderFn(data);
-}
-function postRenderFn(widget) {}
+!function(window, document){
+  'use strict';
+
+  var methods = {};
+
+  methods.preRenderFn = function preRenderFn(widget, data, renderFn) {
+    renderFn(data);
+  }
+  methods.postRenderFn = function postRenderFn(widget) {
+
+  }
+
+  window.rrMethods = methods;
+}(window, document);
 retailrocket.widget.render();
 </script>
